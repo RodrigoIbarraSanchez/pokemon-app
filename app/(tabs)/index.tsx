@@ -1,74 +1,88 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
+import { useCallback, useEffect, useState } from 'react';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { PokemonCard } from '@/components/PokemonCard';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { getPokemonList } from '@/services/pokemonService';
+import { PokemonBasicInfo } from '@/types/pokemon';
 
 export default function HomeScreen() {
+  const [pokemons, setPokemons] = useState<PokemonBasicInfo[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [offset, setOffset] = useState(0);
+
+  const fetchPokemons = useCallback(async () => {
+    try {
+      const response = await getPokemonList(offset);
+      setPokemons(prev => [...prev, ...response.results]);
+    } catch (error) {
+      console.error('Error fetching pokemons:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [offset]);
+
+  useEffect(() => {
+    fetchPokemons();
+  }, [fetchPokemons]);
+
+  const handleLoadMore = () => {
+    setOffset(prev => prev + 20);
+  };
+
+  const renderFooter = () => {
+    if (!isLoading) return null;
+    return (
+      <ThemedView style={styles.loaderContainer}>
+        <ActivityIndicator size="large" />
+      </ThemedView>
+    );
+  };
+
+  if (isLoading && pokemons.length === 0) {
+    return (
+      <ThemedView style={styles.container}>
+        <ActivityIndicator size="large" />
+      </ThemedView>
+    );
+  }
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ThemedView style={styles.container}>
+      <ThemedText type="title" style={styles.title}>
+        Pokédex
+      </ThemedText>
+      <FlatList
+        data={pokemons}
+        renderItem={({ item, index }) => <PokemonCard pokemon={item} index={index} />}
+        keyExtractor={item => item.name}
+        numColumns={2}
+        onEndReached={handleLoadMore}
+        onEndReachedThreshold={0.5}
+        ListFooterComponent={renderFooter}
+        contentContainerStyle={styles.listContainer}
+      />
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  title: {
+    fontSize: 32,
+    textAlign: 'center',
+    marginBottom: 16,
+    fontFamily: 'SpaceMono',
+  },
+  listContainer: {
+    paddingBottom: 16,
+  },
+  loaderContainer: {
+    paddingVertical: 20,
     alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
   },
 });

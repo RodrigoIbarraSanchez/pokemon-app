@@ -43,26 +43,16 @@ En la salida, encontrarás opciones para abrir la aplicación en:
 
 Puedes comenzar a desarrollar editando los archivos dentro del directorio **app**. Este proyecto utiliza [enrutamiento basado en archivos](https://docs.expo.dev/router/introduction).
 
-## Obtener un proyecto nuevo
-
-Cuando estés listo, ejecuta:
-
-```bash
-npm run reset-project
-```
-
-Este comando moverá el código inicial al directorio **app-example** y creará un directorio **app** vacío donde podrás comenzar a desarrollar.
-
 ## Aprende más
 
 Para aprender más sobre el desarrollo de tu proyecto con Expo, consulta los siguientes recursos:
 
 - [Documentación de Expo](https://docs.expo.dev/): Aprende los fundamentos o profundiza en temas avanzados con nuestras [guías](https://docs.expo.dev/guides).
 - [Tutorial de Expo](https://docs.expo.dev/tutorial/introduction/): Sigue un tutorial paso a paso donde crearás un proyecto que funciona en Android, iOS y web.
+- [Curso de Rodrigo Ibarra](https://go.hotmart.com/K97979199P): Sigue un tutorial paso a paso donde crearás un proyecto que funciona en Android y iOS. ¡El precio incrementará en unos días!
 
 ## Únete a la comunidad
 
 Únete a nuestra comunidad de desarrolladores creando aplicaciones universales.
 
-- [Expo en GitHub](https://github.com/expo/expo): Explora nuestra plataforma de código abierto y contribuye.
-- [Comunidad en Discord](https://chat.expo.dev): Chatea con usuarios de Expo y haz preguntas.
+- [Income Builders - WhatsApp](https://chat.whatsapp.com/DZ8hRV0Gf1zCnERa42Q4UX): Explora nuestra comunidad donde hablamos de generación de fuentes de ingresos.

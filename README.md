@@ -1,50 +1,68 @@
-# Welcome to your Expo app 👋
+# Si no sabes como usar este proyecto, accede al curso "Cómo ganar al menos $500 USD al mes con Aplicaciones Móviles" donde aprenderás a usar este proyecto y a hacer muchos otros por tu cuenta.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+[Acceder al curso aquí](https://go.hotmart.com/K97979199P)
 
-## Get started
+---
 
-1. Install dependencies
+# ¡Bienvenido a tu app de Pokemon 👋
+
+Este es un proyecto de [Expo](https://expo.dev) creado con [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+## Clonar el repositorio
+
+Para comenzar, necesitas tener una copia local del proyecto en tu computadora. Puedes hacerlo siguiendo estos pasos:
+
+1. Abre tu terminal
+2. Ejecuta el siguiente comando:
+
+   ```bash
+   git clone https://github.com/tu-usuario/pokemon-app.git
+   cd pokemon-app
+   ```
+
+## Primeros pasos
+
+1. Instala las dependencias
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Inicia la aplicación
 
    ```bash
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+En la salida, encontrarás opciones para abrir la aplicación en:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [Build de desarrollo](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Emulador de Android](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [Simulador de iOS](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), un entorno limitado para probar el desarrollo de aplicaciones con Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Puedes comenzar a desarrollar editando los archivos dentro del directorio **app**. Este proyecto utiliza [enrutamiento basado en archivos](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Obtener un proyecto nuevo
 
-When you're ready, run:
+Cuando estés listo, ejecuta:
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Este comando moverá el código inicial al directorio **app-example** y creará un directorio **app** vacío donde podrás comenzar a desarrollar.
 
-## Learn more
+## Aprende más
 
-To learn more about developing your project with Expo, look at the following resources:
+Para aprender más sobre el desarrollo de tu proyecto con Expo, consulta los siguientes recursos:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Documentación de Expo](https://docs.expo.dev/): Aprende los fundamentos o profundiza en temas avanzados con nuestras [guías](https://docs.expo.dev/guides).
+- [Tutorial de Expo](https://docs.expo.dev/tutorial/introduction/): Sigue un tutorial paso a paso donde crearás un proyecto que funciona en Android, iOS y web.
 
-## Join the community
+## Únete a la comunidad
 
-Join our community of developers creating universal apps.
+Únete a nuestra comunidad de desarrolladores creando aplicaciones universales.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo en GitHub](https://github.com/expo/expo): Explora nuestra plataforma de código abierto y contribuye.
+- [Comunidad en Discord](https://chat.expo.dev): Chatea con usuarios de Expo y haz preguntas.
